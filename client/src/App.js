@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Homepage from './components/Homepage'
+import UserList from './components/users/UserList'
+import SingleUser from './components/users/SingleUser'
+import Chapter from './components/chapters/Chapter'
 
 class App extends Component {
+  state = {
+    user: {
+      chapters: [{}]
+    },
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="homepic" >
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/users" component={UserList} />
+          <Route exact path="/chapters" component={Chapter}/>
+       
+          <Route exact path="/users/:userId" component={SingleUser} />
+        </Switch>
+      </Router>
       </div>
     );
   }
