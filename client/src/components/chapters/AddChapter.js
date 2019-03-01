@@ -19,10 +19,10 @@ class AddChapterForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const userId = this.props.userId
-        console.log(this.props.userId)
+        // console.log(this.props.userId)
         console.log(userId)
         const payload = this.state.chapter
-        axios.post(`/api/users/${userId}/chapter`, payload)
+        axios.post(`/api/users/${userId}/chapters`, payload)
         .then((res) => {
             console.log(res)
             this.props.getSingleUser()

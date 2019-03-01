@@ -10,7 +10,7 @@ class EditUserForm extends Component {
     }
 
     handleChange = (event) => {
-        const newState = { ...this.state.use }
+        const newState = { ...this.state.user }
         newState[event.target.name] = event.target.value
         this.setState({ user: newState })
     }
@@ -32,8 +32,8 @@ class EditUserForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <input type="text"
-                        placeholder="Change something"
-                        name="text"
+                        placeholder="Change something?"
+                        name="username"
                         value={this.state.user.username}
                         onChange={this.handleChange}
                         />
